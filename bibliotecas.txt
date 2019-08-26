@@ -1,0 +1,3 @@
+bcrypt - criptografar senhas e retornar mensagens de erro
+body-parser
+jsonwebtoken - configuração de token
