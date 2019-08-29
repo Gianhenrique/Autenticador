@@ -105,7 +105,7 @@ router.post('/forgot_password', async (req, res) => {
     }catch(err){
         
         res.status(400).send({ error: 'Error on forgot password, try again' });
-        console.log("o erro é" + err);
+        console.log(err);
     }
 });
 module.exports = app => app.use('/auth', router)
