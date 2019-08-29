@@ -89,11 +89,23 @@ router.post('/forgot_password', async (req, res) => {
        mailer.sendMail({
            to: email,
            from: 'gianh7@gmail.com',
-           template: ''
-       })
+           template: 'auth/forgot_password',
+           context: { token },
+           
+       
+       }, (err) => {
+           if (err)
+        return res.status(400).send({ error:' Cannot send forgot password email'})
+        console.log(err);
+       
+       
+        return res.send()
+       });
 
     }catch(err){
-        res.status(400).send({ error: 'Erro on forgot password, try again' });
+        
+        res.status(400).send({ error: 'Error on forgot password, try again' });
+        console.log("o erro é" + err);
     }
 });
 module.exports = app => app.use('/auth', router)
